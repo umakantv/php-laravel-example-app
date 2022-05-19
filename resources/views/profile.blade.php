@@ -14,8 +14,21 @@
                         </div>
                     @endif
 
-                    {{ $user->name }}
-                    {{ $user->email }}
+                    <div>
+                        <h1>{{ $user->name }}</h1>
+                        <h2>{{ $user->email }}</h2>
+                    </div>
+
+                    @for ($i = 0; $i < count($user->posts); $i++)
+                        <div>
+                            <h2>{{ $user->posts[$i]->title }}</h2>
+                            <p>
+                                {{ $user->posts[$i]->content }}
+                            </p>
+                            <span>{{ $user->posts[$i]->created_at }}</span>
+                        </div>
+                    @endfor
+
                 </div>
             </div>
         </div>
