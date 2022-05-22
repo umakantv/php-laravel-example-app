@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+Route::get('/test', [App\Http\Controllers\TestController::class, 'test'])->name('test');
+Route::get('/test/json/{name}', [App\Http\Controllers\TestController::class, 'testJson'])->name('test.json');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.show');

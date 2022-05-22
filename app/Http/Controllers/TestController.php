@@ -5,29 +5,20 @@ namespace App\Http\Controllers;
 use \Illuminate\Http\Request;
 use \Illuminate\Http\Response;
 
-class HomeController extends Controller {
+class TestController extends Controller {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct() {
-        // $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index() {
-        return view('home');
+        echo "Hey, the TestController class is created.";
     }
 
     public function test() {
 
         // Use library functions
-        return \Illuminate\Support\Str::studly("banking_account");
+        return \Illuminate\Support\Str::studly("umakant_vashishtha");
     }
 
     public function testJson($name){
