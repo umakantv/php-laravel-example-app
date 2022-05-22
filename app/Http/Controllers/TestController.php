@@ -12,7 +12,7 @@ class TestController extends Controller {
      * @return void
      */
     public function __construct() {
-        echo "Hey, the TestController class is created.";
+        echo "Hey, the TestController class is created.<br/>";
     }
 
     public function test() {
