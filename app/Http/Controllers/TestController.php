@@ -12,6 +12,7 @@ class TestController extends Controller {
      * @return void
      */
     public function __construct() {
+        // This shows that the controller class instance is created at the time of the request.
         echo "Hey, the TestController class is created.<br/>";
     }
 
@@ -23,6 +24,22 @@ class TestController extends Controller {
 
     public function testJson($name){
         return response()->json(['name' => $name, 'state' => 'CA']);
-        // return Response::json(['hello' => $name], 200);
+        // return Response::json(['hello' => $name], 200); // Method Illuminate\Http\Response::json does not exist.
+
+    }
+
+    public static function joinStatusesForInClause(array $statuses) {
+
+        $statusesWithQuote = [];
+
+        foreach ($statuses as $sub_status) {
+            array_push($statusesWithQuote, '\''.$sub_status.'\'');
+        }
+        $clause = '('.join(',', $statusesWithQuote).')';
+        return $clause;
+    }
+
+    public function getEntity() {
+        return $this->getEntityClass();
     }
 }
