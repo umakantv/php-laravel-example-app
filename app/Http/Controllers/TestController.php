@@ -18,8 +18,12 @@ class TestController extends Controller {
 
     public function test() {
 
+        $string = "umakant_vashishtha";
+        $string = str_replace('_', ' ', $string);
+        $string = ucwords($string);
+        return $string;
         // Use library functions
-        return \Illuminate\Support\Str::studly("umakant_vashishtha");
+        return \Illuminate\Support\Str::capita($string);
     }
 
     public function testJson($name){
